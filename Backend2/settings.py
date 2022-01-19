@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from datetime import timedelta
 import django_heroku
@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--==q0oei-zu@9i63^j0j(b)ve&5$te$(324)uze#=eayjb7anm'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -94,23 +94,11 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
 }
 
-GOOGLE_CLIENT_ID = "441732816721-f98c1ecfg3lajg9h3q5bmm3l479ova48.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = "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"
+GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET')
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5nujmqp0613uj',
-        'USER': 'dyifovxtfpllop',
-        'PASSWORD': 'be379cad561e8721e89a9f8aa54f368975602df3e6dfc1d3d064e7ad02b6b500',
-        'HOST': 'ec2-52-19-164-214.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
