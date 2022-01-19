@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,11 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--==q0oei-zu@9i63^j0j(b)ve&5$te$(324)uze#=eayjb7anm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['10.0.2.2',
                  'localhost',
-                 '127.0.0.1',]
+                 '127.0.0.1',
+                 'zones-app-api.herokuapp.com',]
 
 
 AUTH_USER_MODEL = 'user.User'
@@ -100,8 +102,12 @@ GOOGLE_CLIENT_SECRET = "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"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5nujmqp0613uj',
+        'USER': 'dyifovxtfpllop',
+        'PASSWORD': 'be379cad561e8721e89a9f8aa54f368975602df3e6dfc1d3d064e7ad02b6b500',
+        'HOST': 'ec2-52-19-164-214.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -146,3 +152,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
