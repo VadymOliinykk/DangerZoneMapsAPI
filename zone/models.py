@@ -5,6 +5,7 @@ from user.models import User
 
 
 class Zone(models.Model):
+    name = models.CharField(default="Default name", max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     type_options = [
         ('NT', 'Natural'),
@@ -20,6 +21,6 @@ class Zone(models.Model):
     is_showing = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.author.username + ":" + self.description
+        return self.name + ".By " + self.author.username
 
 

@@ -5,7 +5,7 @@ from zone.models import Zone
 
 
 class ZoneAdmin(admin.ModelAdmin):
-    list_display = ('author', 'description', 'zone_type', 'is_showing')
+    list_display = ('name', 'author', 'description', 'zone_type', 'is_showing')
 
 
 admin.site.register(Zone, ZoneAdmin)
