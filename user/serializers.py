@@ -51,9 +51,9 @@ class LoginSerializer(serializers.ModelSerializer):
             raise AuthenticationFailed('Account disabled, contact admin')
 
         return {
-            'username': user.username,
-            'email': user.email,
-            'tokens': user.tokens,
+            "username": user.username,
+            "email": user.email,
+            "tokens": user.tokens,
         }
 
     def create(self, validated_data):

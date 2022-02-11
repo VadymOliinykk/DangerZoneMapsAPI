@@ -24,9 +24,9 @@ def register_social_user(provider, user_id, email, name):
             registered_user = authenticate(email=email, password=settings.GOOGLE_CLIENT_SECRET)
 
             return {
-                'username': registered_user.username,
-                'email': registered_user.email,
-                'tokens': registered_user.tokens(),
+                "username": registered_user.username,
+                "email": registered_user.email,
+                "tokens": registered_user.tokens(),
             }
 
         else:
@@ -42,7 +42,7 @@ def register_social_user(provider, user_id, email, name):
         new_user = authenticate(email=email, password=settings.GOOGLE_CLIENT_SECRET)
 
         return {
-            'username': new_user.username,
-            'email': new_user.email,
-            'tokens': new_user.tokens(),
+            "username": new_user.username,
+            "email": new_user.email,
+            "tokens": new_user.tokens(),
         }
