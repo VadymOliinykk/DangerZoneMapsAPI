@@ -33,7 +33,6 @@ class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
     username = serializers.CharField(read_only=True)
-    tokens = serializers.CharField(read_only=True)
 
     class Meta:
         model = User
@@ -53,7 +52,7 @@ class LoginSerializer(serializers.ModelSerializer):
         return {
             "username": user.username,
             "email": user.email,
-            "tokens": user.tokens,
+            "tokens": user.tokens(),
         }
 
     def create(self, validated_data):
