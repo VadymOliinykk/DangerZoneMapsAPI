@@ -104,8 +104,15 @@ GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config('postgres://django_api_user:NICwITXpOAIYnrerI8FOaAxj69fdUQMv@dpg-cf05n2arrk0eqcpltje0-a.frankfurt-postgres.render.com/zones_users_django_db', conn_max_age=600)}
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'zones_users_django_db',
+        'USER': 'django_api_user',
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': '5432',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
