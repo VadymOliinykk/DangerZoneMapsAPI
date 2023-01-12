@@ -3,6 +3,7 @@
 set -o errexit
 
 poetry --version
+poetry self update
 poetry install
 
 python manage.py collectstatic --no-input

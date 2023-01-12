@@ -29,7 +29,7 @@ DEBUG = 'RENDER' not in os.environ
 ALLOWED_HOSTS = ['10.0.2.2',
                  'localhost',
                  '127.0.0.1',
-                  ]
+                 'https://android-app-zones-api.onrender.com', ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -104,7 +104,7 @@ GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config('postgresql://django_user:12345@localhost:5432/test_db_django', conn_max_age=600)}
+    'default': dj_database_url.config('postgres://django_api_user:NICwITXpOAIYnrerI8FOaAxj69fdUQMv@dpg-cf05n2arrk0eqcpltje0-a.frankfurt-postgres.render.com/zones_users_django_db', conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
