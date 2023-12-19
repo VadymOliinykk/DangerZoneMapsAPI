@@ -12,4 +12,4 @@ class ZoneListSerializer(serializers.ModelSerializer):
 class ToShowZoneListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Zone
-        fields = ['name', 'zone_type', 'lat', 'lon', 'radius', 'description']
+        fields = ['id', 'name', 'zone_type', 'lat', 'lon', 'radius', 'description']
